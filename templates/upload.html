@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generate your personalized AI Caravan poster - IEEE CSR8">
+  <title>AI Caravan Regional Summit Poster Generator | IEEE CSR8 AI Caravan</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-section">
+          <h1 class="logo">IEEE CSR8 AI Caravan</h1>
+          <p class="tagline">Regional Summit Poster Generator</p>
+        </div>
+        <nav class="nav">
+          <a href="https://ieeecsr8aicaravan.site/" class="nav-link" target="_blank">Home</a>
+          <a href="#" class="nav-link active">Poster Generator</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="hero-section">
+        <div class="hero-content">
+          <h2 class="hero-title">Create Your Own Summit Poster</h2>
+          <p class="hero-subtitle">Upload your photo and generate a personalized poster for the IEEE CSR8 AI Caravan regional summit</p>
+        </div>
+      </div>
+
+      <!-- Upload Section -->
+      <div class="upload-section">
+        <div class="upload-card">
+          <div class="card-header">
+            <div class="icon-wrapper">
+              <svg class="upload-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Upload Your Photo</h3>
+            <p class="card-description">Select an image file (PNG, JPG, JPEG, or GIF)</p>
+          </div>
+
+          <form id="uploadForm" action="/generate" method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="file-input-wrapper">
+              <input type="file" id="imageInput" name="image" accept="image/*" required class="file-input" />
+              <label for="imageInput" class="file-label">
+                <span class="file-label-text">Choose File</span>
+              </label>
+              <div id="fileName" class="file-name"></div>
+            </div>
+
+            <div class="preview-container" id="previewContainer" style="display: none;">
+              <img id="previewImage" src="" alt="Preview" class="preview-image">
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span class="btn-text">Generate Poster</span>
+            </button>
+          </form>
+
+          <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Generating your poster...</p>
+          </div>
+
+          <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </div>
+
+        <!-- Poster Preview Section -->
+        <div id="posterPreviewSection" class="poster-preview-section">
+          <div class="poster-preview-header">
+            <h3>Your AI Caravan Poster</h3>
+            <p>Preview your generated poster below</p>
+          </div>
+          <img id="posterPreviewImage" src="" alt="Generated Poster" class="poster-preview-image">
+          <a id="downloadBtn" href="#" download="AI_Caravan_Poster.png" class="download-btn">
+            <span>Download Poster</span>
+          </a>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+          <div class="info-card">
+            <h4>📋 Instructions</h4>
+            <ul class="info-list">
+              <li>Upload a clear photo of yourself</li>
+              <li>Supported formats: PNG, JPG, JPEG, GIF</li>
+              <li>Image Must be Square</li>
+              <li>Preview your poster before downloading</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 IEEE CSR8 AI Caravan. All rights reserved.</p>
+        <p class="footer-links">
+          <a href="https://ieeecsr8aicaravan.site/" target="_blank">Visit Main Website</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
